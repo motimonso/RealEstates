@@ -77,26 +77,8 @@ namespace Moti
            
            }
         }
-        bool IsDigitsOnlyAddress(string str)
-        {
-            foreach (char c in str)
-            {
-                if ((c < '0' || c > '9' )&&!c.Equals('/'))
-                    return false;
-            }
-
-            return true;
-        }
-        bool IsDigitsOnly(string str)
-        {
-            foreach (char c in str)
-            {
-                if (c < '0' || c > '9')
-                    return false;
-            }
-
-            return true;
-        }
+       
+        
 
         protected void ddlCities_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -266,7 +248,7 @@ namespace Moti
             {
                 if (TextBox1.Text != "") // Only If The Word Isnt Empty Do The Rest
                 {
-                    if (IsDigitsOnly(TextBox1.Text))
+                    if (GeneralMethods.IsDigitsOnly(TextBox1.Text))
                     {
                         if (!cbl.ClientExist(TextBox1.Text))
                         {
@@ -306,7 +288,7 @@ namespace Moti
                     }
                     else
                     {
-                        if (!IsDigitsOnly(TextBox2.Text) || !IsDigitsOnly(TextBox5.Text) || !IsDigitsOnly(TextBox6.Text) || !IsDigitsOnly(TextBox7.Text))
+                        if (!GeneralMethods.IsDigitsOnly(TextBox2.Text) || !GeneralMethods.IsDigitsOnly(TextBox5.Text) || !GeneralMethods.IsDigitsOnly(TextBox6.Text) || !GeneralMethods.IsDigitsOnly(TextBox7.Text))
                         {
                             NewUserErrorLabel.Text = "תעודת זהות ומספרי טלפון חייבים להכיל ספרות בלבד";
                             NewUserErrorLabel.Visible = true;
@@ -356,8 +338,8 @@ namespace Moti
             }
 
             //Check If All Fields That Required Digits Are Correct
-            if (!(IsDigitsOnly(TextBox9.Text) && IsDigitsOnly(TextBox24.Text)
-                && IsDigitsOnlyAddress(TextBox13.Text) && IsDigitsOnly(TextBox15.Text)))
+            if (!(GeneralMethods.IsDigitsOnly(TextBox9.Text) && GeneralMethods.IsDigitsOnly(TextBox24.Text)
+                && GeneralMethods.IsDigitsOnlyAddress(TextBox13.Text) && GeneralMethods.IsDigitsOnly(TextBox15.Text)))
             {
                 EstateErrorLabel.Text=("בשדות : מחיר , מספר , שטח וגינה חובה להכניס רק ספרות");
                 EstateErrorLabel.Visible = true;

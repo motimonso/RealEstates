@@ -11,7 +11,7 @@
         <div class="col-lg-2 col-lg-push-11">
             <asp:RadioButton  GroupName="RadioButton" OnCheckedChanged="Button1Changed"  ID="RadioButton1" runat="server" Text="לקוח קיים" TextAlign="Left" />
         </div>
-        <div class="col-lg-2 col-lg-push-7">
+        <div class="col-lg-4 col-lg-push-5">
             <asp:Label runat="server" Visible="false" ID="ExistUserErrorLabel" Text="מספר הזהות שגוי או שאינו קיים במערכת" ForeColor="Red"></asp:Label>
         </div>
     </div>
@@ -28,7 +28,7 @@
         <div class="col-lg-2 col-lg-push-11">
             <asp:RadioButton GroupName="RadioButton" OnCheckedChanged="Button2Changed"  ID="RadioButton2" runat="server" Text=" לקוח חדש " TextAlign="Left" />
         </div>
-        <div class="col-lg-2 col-lg-push-7">
+        <div class="col-lg-5 col-lg-push-4">
             <asp:Label runat="server" Visible="false" Text="מספר הזהות קיים במערכת" ID="NewUserErrorLabel" ForeColor="Red"></asp:Label>
         </div>
     </div>

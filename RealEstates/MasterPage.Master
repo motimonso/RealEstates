@@ -41,7 +41,7 @@
 <body>
     <%
     if (Session.Count == 0)
-            Response.Redirect("LoginPage.aspx", true);
+            Response.Redirect("/LoginPage.aspx");
          %>
     <form id="form1" runat="server">
 

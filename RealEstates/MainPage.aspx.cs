@@ -32,7 +32,8 @@ namespace Moti
                                  title = x.Element("title").Value,
                                  link = x.Element("link").Value,
                                  pubDate = x.Element("pubDate").Value,
-                                 description = x.Element("description").Value
+                                 description = x.Element("description").Value,
+                                 
                              });
                 if (items != null)
                 {
@@ -43,9 +44,11 @@ namespace Moti
                             Title = i.title,
                             Link = i.link,
                             PublishDate = i.pubDate,
-                            Description = i.description
+                            Description = i.description,
+                            
                         };
-
+                        f.RemoveHRefFromPic();
+                        f.PictureFromDescription = f.removePiture();
                         feeds.Add(f);
                     }
                 }

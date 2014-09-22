@@ -17,5 +17,24 @@ namespace RealEstates.ServerSide
         {
             return @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Dev\Visual_Projects\RealEstates\RealEstates\App_Data\DB.mdf;Integrated Security=True;Connect Timeout=30";
         }
+        public static bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+            return true;
+        }
+        public static bool IsDigitsOnlyAddress(string str)
+        {
+            foreach (char c in str)
+            {
+                if ((c < '0' || c > '9') && !c.Equals('/'))
+                    return false;
+            }
+
+            return true;
+        }
     }
 }
