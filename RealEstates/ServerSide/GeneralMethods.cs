@@ -15,7 +15,7 @@ namespace RealEstates.ServerSide
         }
         public static string getSqlString()
         {
-            return @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Dev\Visual_Projects\Moti\Moti\App_Data\DB.mdf;Integrated Security=True;Connect Timeout=30";
+            return @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Dev\Visual_Projects\RealEstates\RealEstates\App_Data\DB.mdf;Integrated Security=True;Connect Timeout=30";
         }
     }
 }
