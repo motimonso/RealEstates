@@ -11,6 +11,10 @@
     width:100%;
    
 }
+label{
+    margin-right:5px;
+    
+}
 
  #WelcomeLabel
     {
@@ -96,6 +100,7 @@
     }
     .DetailDiv 
     {
+        direction:rtl;
         float:right;
        height:30px;
         margin-left:12px;
@@ -121,6 +126,7 @@
     }
     .largeDDL
     {
+        float:right;
          margin-left:12px;
         margin-bottom:10px;
         width:120px;
@@ -130,7 +136,7 @@
     }
     .detailB
     {
-        font-size:large;
+        font-size:medium;
         color:#428bca;
     }
     #logoImg

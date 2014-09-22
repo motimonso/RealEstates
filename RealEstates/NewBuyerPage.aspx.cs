@@ -201,7 +201,7 @@ namespace Moti
                     }
                     else
                     {
-                        if (!GeneralMethods.(TextBox2.Text) || !GeneralMethods.IsDigitsOnly(TextBox5.Text) || !GeneralMethods.IsDigitsOnly(TextBox6.Text) || !IsDigitsOnly(TextBox7.Text))
+                        if (!GeneralMethods.IsDigitsOnly(TextBox2.Text) || !GeneralMethods.IsDigitsOnly(TextBox5.Text) || !GeneralMethods.IsDigitsOnly(TextBox6.Text) || !GeneralMethods.IsDigitsOnly(TextBox7.Text))
                         {
                             NewUserErrorLabel.Text = "תעודת זהות ומספרי טלפון חייבים להכיל ספרות בלבד";
                             NewUserErrorLabel.Visible = true;

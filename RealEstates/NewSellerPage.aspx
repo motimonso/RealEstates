@@ -5,31 +5,29 @@
      <h1>הוספת מוכר למאגר</h1>
         </div>
     <div class="row">
-            <h3>פרטי הלקוח : </h3>
+        <h3>פרטי הלקוח : </h3>
     </div>
     <div class="row">
-        <div class="col-lg-2 col-lg-push-11">
-            <asp:RadioButton  GroupName="RadioButton" OnCheckedChanged="Button1Changed"  ID="RadioButton1" runat="server" Text="לקוח קיים" TextAlign="Left" />
+        <div class="col-lg-2 col-lg-push-11" style="text-align:left">
+            <asp:RadioButton GroupName="RadioButton" OnCheckedChanged="Button1Changed" ID="RadioButton1" runat="server" Text="לקוח קיים" TextAlign="Left" />
         </div>
-        <div class="col-lg-4 col-lg-push-5">
+        <div class="col-lg-2 col-lg-push-7">
             <asp:Label runat="server" Visible="false" ID="ExistUserErrorLabel" Text="מספר הזהות שגוי או שאינו קיים במערכת" ForeColor="Red"></asp:Label>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-2 col-lg-push-10  ">
-            <asp:Label  ID="Lable1" runat="server" CssClass="DetailsToFill" Text="תעודת זהות :"></asp:Label>
-        </div>
-        <div class="col-md-2 col-md-push-7">
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <div class="col-lg-3 col-lg-push-9  ">
+            <asp:Label ID="Lable1" runat="server" CssClass="DetailDiv" Text="תעודת זהות :"></asp:Label>
+            <asp:TextBox CssClass="largeDDL" ID="TextBox1" runat="server"></asp:TextBox>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-2 col-lg-push-11">
-            <asp:RadioButton GroupName="RadioButton" OnCheckedChanged="Button2Changed"  ID="RadioButton2" runat="server" Text=" לקוח חדש " TextAlign="Left" />
+            <asp:RadioButton GroupName="RadioButton" OnCheckedChanged="Button2Changed" ID="RadioButton2" runat="server" Text=" לקוח חדש " TextAlign="Left" />
         </div>
-        <div class="col-lg-5 col-lg-push-4">
-            <asp:Label runat="server" Visible="false" Text="מספר הזהות קיים במערכת" ID="NewUserErrorLabel" ForeColor="Red"></asp:Label>
+        <div class="col-lg-8 col-lg-push-1">
+            <asp:Label CssClass="DetailDiv" runat="server" Visible="false" Text="מספר הזהות קיים במערכת" ID="NewUserErrorLabel" ForeColor="Red"></asp:Label>
         </div>
     </div>
     <div class="row">
@@ -65,8 +63,6 @@
             </div>
         </div>
     </div>
-
-
     <div class="row">
         <div class="col-lg-2 col-lg-push-10">
             <h3>פרטי הנכס : </h3>
@@ -182,7 +178,7 @@
             </div>
         </div>
     </div>
-
+    <br />
     <div class="row">
         <div id="Buttons">
             <asp:Button runat="server" ID="SendButton" Text="שלח" OnClientClick="return UserValidate();" OnClick="SendNewSeller" />
