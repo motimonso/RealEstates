@@ -1,0 +1,139 @@
+﻿#Header {
+    
+    border-radius: 10px;
+    border: solid 2px #909090;
+    height: 134px;
+}
+#LogoText
+{
+    text-align:center;
+    direction:rtl;
+    width:100%;
+   
+}
+
+ #WelcomeLabel
+    {
+        float:right;
+       position:relative;
+       left:-20px;
+    }
+#Footer {
+    border-radius: 10px;
+    border: solid 2px #909090;
+    background-color: #F0F0F0;
+    height: 100px;
+    clear: both;
+}
+
+#mainContain {
+    border-radius: 10px;
+    border: solid 2px #909090;
+    height: auto;
+    width: 85%;
+    float: left;
+    padding: 10px;
+    margin: 2px 2px;
+    position:relative;
+    direction:rtl;
+    min-height:345px;
+    
+}
+
+#NavBar {
+    float: right;
+    background-color: #F0F0F0;
+    border: solid 2px #909090;
+    width: 10%;
+    height: 350px;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 2px 2px;
+    padding-top:10px;
+    text-align: center;
+}
+
+    #NavBar a {
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+        margin-bottom: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2px;
+        display: block;
+        border-radius: 10px;
+        background:black;
+        color : white;
+    }
+
+   
+
+  
+
+    .DetailsToFill
+    {
+        float:right;
+        margin-left:12px;
+        margin-bottom:10px;
+        direction:rtl;
+    margin-right: 0px;
+}
+    h1
+    {
+        clear:both;
+        direction:rtl;
+    }
+    h3
+    {
+        clear:both;
+        direction:rtl;
+        width: 113px;
+}
+    .DetailsHeader
+    {
+        display:inline;
+    }
+    .DetailDiv 
+    {
+        float:right;
+       height:30px;
+        margin-left:12px;
+    }
+
+    #Buttons
+    {
+       clear:both;
+       float:right;  
+       direction:rtl;
+    }
+    .AddressDDL
+    {
+         margin-left:12px;
+         margin-bottom:10px;
+        width:100px;
+    }
+    .SmallDDL
+    {
+         margin-left:12px;
+        margin-bottom:10px;
+        width:55px;
+    }
+    .largeDDL
+    {
+         margin-left:12px;
+        margin-bottom:10px;
+        width:120px;
+    }
+    .datailA
+    {
+        text-decoration-line:underline;
+    }
+    #logoImg
+    {
+        border-radius:10px;
+        display : block;
+        margin:0 auto;
+        width:1329px;
+        height:134px;
+    }
