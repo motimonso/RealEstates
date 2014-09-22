@@ -8,7 +8,7 @@
             
             MatchesBL mbl = new MatchesBL();
             LinkedList<Matches> newMatchList = mbl.getMatchesByType(0);
-            ClientsBL cbl=new ClientsBL();
+            ClientsBL cbl = new ClientsBL();
             SellerEstateBL sbl = new SellerEstateBL();
             foreach (Matches m in newMatchList)
             {
@@ -16,22 +16,58 @@
                 string sellerAddress = sbl.getFullAddressByEstateID(m.SellerEstateId);
                
         %>
-       
-        <div>
-        <a>נמצאה התאמה ל: </a>
-        <a class="datailA"><%=buyerName %></a>
-        <a>ב: </a>
-        <a class="datailA"><%=sellerAddress %></a>
+
+        <div class="row">
+            <div class="col-lg-12 matchDiv">
+                <b class="detailB">נמצאה התאמה ל: </b>
+
+                
+                    <b ><%=buyerName %></b>
+               
+                &nbsp
+        <b class="detailB">ב: </b>
+                
+                    <b><%=sellerAddress %></b>
+                
+                &nbsp
         <a href="DetailedPage.aspx?buyerEstateId=<%=m.BuyerEstateId %> &sellerEstateId=<%=m.SellerEstateId %> ">הצג פרטים</a>
-        
-        <br />
             </div>
-        
+        </div>
+
 
 
         <% } %>
     </div>
     <div id="OpenMatches">
+        <h3>התאמות פתוחות</h3>
+        <%
+            LinkedList<Matches> openMatchList = mbl.getMatchesByType(1);
+            foreach (Matches m in openMatchList)
+            {
+                string buyerName = cbl.getBuyerNameByEstateID(m.BuyerEstateId);
+                string sellerAddress = sbl.getFullAddressByEstateID(m.SellerEstateId);   
+        %>
+
+        <div class="row">
+            <div class="col-lg-6 col-lg-push-6 matchDiv">
+                <b class="detailB">נמצאה התאמה ל: </b>
+
+                
+                <b ><%=buyerName %></b>
+                
+                &nbsp
+        <b>ב: </b>
+                
+                    <b class="detailB"><%=sellerAddress %></b>
+                
+                &nbsp
+        <a href="DetailedPage.aspx?buyerEstateId=<%=m.BuyerEstateId %> &sellerEstateId=<%=m.SellerEstateId %> ">הצג פרטים</a>
+            </div>
+        </div>
+
+
+
+        <% } %>
     </div>
 
 </asp:Content>

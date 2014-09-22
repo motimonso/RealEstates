@@ -64,6 +64,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="img\rsz_capture.jpg" />
     <Content Include="MasterPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -102,24 +103,28 @@
   <ItemGroup>
     <Compile Include="DetailedPage.aspx.cs">
       <DependentUpon>DetailedPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DetailedPage.aspx.designer.cs">
       <DependentUpon>DetailedPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="DetailFromSearch.aspx.cs">
       <DependentUpon>DetailFromSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DetailFromSearch.aspx.designer.cs">
       <DependentUpon>DetailFromSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Header.ascx.cs">
       <DependentUpon>Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Header.ascx.designer.cs">
       <DependentUpon>Header.ascx</DependentUpon>
     </Compile>
     <Compile Include="LoginHeader.ascx.cs">
       <DependentUpon>LoginHeader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="LoginHeader.ascx.designer.cs">
       <DependentUpon>LoginHeader.ascx</DependentUpon>
@@ -133,30 +138,35 @@
     </Compile>
     <Compile Include="MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="MatchesPage.aspx.cs">
       <DependentUpon>MatchesPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MatchesPage.aspx.designer.cs">
       <DependentUpon>MatchesPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewBuyerPage.aspx.cs">
       <DependentUpon>NewBuyerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="NewBuyerPage.aspx.designer.cs">
       <DependentUpon>NewBuyerPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewSellerPage.aspx.cs">
       <DependentUpon>NewSellerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="NewSellerPage.aspx.designer.cs">
       <DependentUpon>NewSellerPage.aspx</DependentUpon>
@@ -164,12 +174,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchPage.aspx.cs">
       <DependentUpon>SearchPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SearchPage.aspx.designer.cs">
       <DependentUpon>SearchPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="SearchResults.aspx.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SearchResults.aspx.designer.cs">
       <DependentUpon>SearchResults.aspx</DependentUpon>
@@ -195,12 +207,14 @@
     <Compile Include="ServerSide\UsersDAL.cs" />
     <Compile Include="SideBar.ascx.cs">
       <DependentUpon>SideBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SideBar.ascx.designer.cs">
       <DependentUpon>SideBar.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserManagePage.aspx.cs">
       <DependentUpon>UserManagePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserManagePage.aspx.designer.cs">
       <DependentUpon>UserManagePage.aspx</DependentUpon>

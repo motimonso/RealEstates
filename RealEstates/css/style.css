@@ -77,18 +77,18 @@
         margin-left:12px;
         margin-bottom:10px;
         direction:rtl;
-    margin-right: 0px;
+         margin-right: 0px;
 }
     h1
     {
-        clear:both;
+       
         direction:rtl;
     }
     h3
     {
-        clear:both;
+       
         direction:rtl;
-        width: 113px;
+      
 }
     .DetailsHeader
     {
@@ -125,9 +125,13 @@
         margin-bottom:10px;
         width:120px;
     }
-    .datailA
+    b{
+        font-size:large;
+    }
+    .detailB
     {
-        text-decoration-line:underline;
+        font-size:large;
+        color:#428bca;
     }
     #logoImg
     {
@@ -136,4 +140,8 @@
         margin:0 auto;
         width:1329px;
         height:134px;
+        padding-bottom:10px;
+    }
+    .matchDiv{
+        direction:rtl;
     }

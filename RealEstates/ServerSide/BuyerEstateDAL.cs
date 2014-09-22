@@ -22,7 +22,7 @@ namespace RealEstates.serverSide
             con.Open();
             string str = "INSERT INTO BuyerEstates VALUES ('" +estateIDGen + "','" + buyerID + "',N'" + estateType + "',N'" + city
                 + "',N'" + hood + "','" + roomFrom + "','" +roomTo + "','" + areaFrom + "','" + areaTo 
-                + "','" + floorFrom + "','" + floorTo + "',N'" + garden
+                + "',N'" + floorFrom + "',N'" + floorTo + "',N'" + garden
                 + "','" + priceFrom + "',N'" + priceTo + "')";
             SqlCommand comm = new SqlCommand(str, con);
             comm.ExecuteNonQuery();

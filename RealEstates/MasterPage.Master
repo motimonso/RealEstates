@@ -54,9 +54,13 @@
         <!-- /#sidebar-wrapper -->
         
         <!-- Page Content -->
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" >
+            
             <div class="container-fluid">
-                
+
+                <uc1:Header runat="server" ID="Header" />
+                    
+
                 <div class="row">
                     <div class="col-sm-1 col-xs-push-11">
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">תפריט</a>
@@ -64,7 +68,7 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col-lg-10 col-lg-push-1" >
+                    <div class="col-lg-12 " >
                         
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 

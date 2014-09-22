@@ -1,61 +1,79 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="DetailedPage.aspx.cs" Inherits="Moti.DetailedPage" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>פרטי התאמה</h1>
     <%
-        ClientsBL cbl=new ClientsBL();
+        ClientsBL cbl = new ClientsBL();
         SellerEstateBL sbl = new SellerEstateBL();
         string buyerEstateId = Request["BuyerEstateId"];
         string sellerEstateId = Request["SellerEstateId"];
         Client buyer = cbl.getFullBuyerByEstateId(buyerEstateId);
         Client seller = cbl.getFullSellerByEstateId(sellerEstateId);
         Seller sellerEstate = sbl.getFullSellerByEstateId(sellerEstateId);
-        %>
-   <h3>פרטי הקונה :</h3>
-    <br />
-    <a>שם :</a><%=buyer.FName %>
-    <a>משפחה :</a><%=buyer.LName %>
-    <a>טלפון 1 :</a><%=buyer.P1 %>
-     <%if(!buyer.P2.Equals("")){ %>
-    <a>טלפון 2 :</a> <%=buyer.P2 %>
-     <%}if(!buyer.P3.Equals("")){ %>
-    <a>טלפון 3 :</a> <%=buyer.P3 %>
-    <%} %>
-    <br />
-    <h3>פרטי המוכר :</h3>
-    <br />
-    <a>שם :</a><%=seller.FName %>
-    <a>משפחה :</a><%=seller.LName %>
-    <a>טלפון 1 :</a><%=seller.P1 %>
-     <%if(!buyer.P2.Equals("")){ %>
-    <a>טלפון 2 :</a> <%=seller.P2 %>
-     <%}if(!buyer.P3.Equals("")){ %>
-    <a>טלפון 3 :</a> <%=seller.P3 %>
-    <%} %>
-    <br />
-    <h3>פרטי הנכס :</h3>
-    <br />
-    <a>סוג נכס :</a><%=sellerEstate.EstateType %><br />
-    <a>מחיר :</a><%=sellerEstate.Price %><br />
-    <a>עיר :</a><%=sellerEstate.City %><br />
-    <a>שכונה :</a><%=sellerEstate.Hood %><br />
-    <a>רחוב :</a><%=sellerEstate.Street %><br />
-    <a>מספר :</a><%=sellerEstate.Number %><br />
-    <a>חדרים :</a><%=sellerEstate.Rooms %><br />
-    <a>שטח :</a><%=sellerEstate.Erea %><br />
-    <a>קומה :</a><%=sellerEstate.Floor %><br />
-    <a>מדרגות :</a><%=sellerEstate.Stairs %><br />
-    <a>מעלית :</a><%=sellerEstate.Elavator %><br />
-    <a>מרפסת :</a><%=sellerEstate.Balcony %><br />
-    <a>שירותים :</a><%=sellerEstate.Toilets %><br />
-    <a>מקלחת :</a><%=sellerEstate.Bath %><br />
-    <a>מחסן :</a><%=sellerEstate.Storage %><br />
-    <a>חניה :</a><%=sellerEstate.Park %><br />
-    <a>גינה :</a><%=sellerEstate.Garden %><br />
-    <a>שיפוץ :</a><%=sellerEstate.Renovation %><br />
-    <a>דוד שמש :</a><%=sellerEstate.Boiler %><br />
-    <a>סורגים :</a><%=sellerEstate.Bars %><br />
-    <a>פלדלת :</a><%=sellerEstate.Pladelet %><br />
+    %>
+    <div class="row">
+        <h3>פרטי הקונה :</h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 matchDiv">
+            <b class="detailB">שם :</b><b><%=buyer.FName %></b>
+            <b class="detailB">משפחה :</b><b><%=buyer.LName %></b>
+            <b class="detailB">טלפון 1 :</b><b><%=buyer.P1 %></b>
+            <%if (!buyer.P2.Equals(""))
+              { %>
+            <b class="detailB">2 :</b> <b><%=buyer.P2 %></b>
+            <%} if (!buyer.P3.Equals(""))
+              { %>
+            <b class="detailB">טלפון 3 :</b> <b><%=buyer.P3 %></b>
+            <%} %>
+        </div>
+    </div>
+    <div class="row">
+        <h3>פרטי המוכר :</h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 matchDiv">
+            <b class="detailB">שם :</b><b><%=seller.FName %></b>
+            <b class="detailB">משפחה :</b><b><%=seller.LName %></b>
+            <b class="detailB">טלפון 1 :</b><b><%=seller.P1 %></b>
+            <%if (!buyer.P2.Equals(""))
+              { %>
+            <b class="detailB">טלפון 2 :</b> <b><%=seller.P2 %></b>
+            <%} if (!buyer.P3.Equals(""))
+              { %>
+            <b class="detailB">טלפון 3 :</b><b> <%=seller.P3 %></b>
+            <%} %>
+        </div>
+    </div>
+    <div class="row">
+        <h3>פרטי הנכס :</h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 matchDiv">
+
+            <b class="detailB">סוג נכס :</b><b><%=sellerEstate.EstateType %></b><br />
+            <b class="detailB">מחיר :</b><b><%=sellerEstate.Price %></b><br />
+            <b class="detailB">עיר :</b><b><%=sellerEstate.City %></b><br />
+            <b class="detailB">שכונה :</b><b><%=sellerEstate.Hood %></b><br />
+            <b class="detailB">רחוב :</b><b><%=sellerEstate.Street %></b><br />
+            <b class="detailB">מספר :</b><b><%=sellerEstate.Number %></b><br />
+            <b class="detailB">חדרים :</b><b><%=sellerEstate.Rooms %></b><br />
+            <b class="detailB">שטח :</b><b><%=sellerEstate.Erea %></b><br />
+            <b class="detailB">קומה :</b><b><%=sellerEstate.Floor %></b><br />
+            <b class="detailB">מדרגות :</b><b><%=sellerEstate.Stairs %></b><br />
+            <b class="detailB">מעלית :</b><b><%=sellerEstate.Elavator %></b><br />
+            <b class="detailB">מרפסת :</b><b><%=sellerEstate.Balcony %></b><br />
+            <b class="detailB">שירותים :</b><b><%=sellerEstate.Toilets %></b><br />
+            <b class="detailB">מקלחת :</b><b><%=sellerEstate.Bath %></b><br />
+            <b class="detailB">מחסן :</b><b><%=sellerEstate.Storage %></b><br />
+            <b class="detailB">חניה :</b><b><%=sellerEstate.Park %></b><br />
+            <b class="detailB">גינה :</b><b><%=sellerEstate.Garden %></b><br />
+            <b class="detailB">שיפוץ :</b><b><%=sellerEstate.Renovation %></b><br />
+            <b class="detailB">דוד שמש :</b><b><%=sellerEstate.Boiler %></b><br />
+            <b class="detailB">סורגים :</b><b><%=sellerEstate.Bars %></b><br />
+            <b class="detailB">פלדלת :</b><b><%=sellerEstate.Pladelet %></b><br />
+        </div>
+    </div>
 
 
-    
 </asp:Content>
