@@ -92,6 +92,7 @@
     <Content Include="LoginPage.aspx" />
     <Content Include="MainPage.aspx" />
     <Content Include="MatchesPage.aspx" />
+    <Content Include="MatchHistory.aspx" />
     <Content Include="NewBuyerPage.aspx" />
     <Content Include="NewSellerPage.aspx" />
     <Content Include="SearchPage.aspx" />
@@ -156,6 +157,13 @@
     </Compile>
     <Compile Include="MatchesPage.aspx.designer.cs">
       <DependentUpon>MatchesPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MatchHistory.aspx.cs">
+      <DependentUpon>MatchHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MatchHistory.aspx.designer.cs">
+      <DependentUpon>MatchHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewBuyerPage.aspx.cs">
       <DependentUpon>NewBuyerPage.aspx</DependentUpon>

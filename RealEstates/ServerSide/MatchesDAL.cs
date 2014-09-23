@@ -14,10 +14,10 @@ namespace RealEstates.ServerSide
             con = new SqlConnection(GeneralMethods.getSqlString());
         }
 
-        public void InsertMatch(string buyerEID, string sellerEID , string status)
+        public void InsertMatch(string buyerEID, string sellerEID, string status)
         {
             con.Open();
-            string str = "INSERT INTO Matches VALUES ('" + buyerEID + "','" + sellerEID + "',N'" + status+ "')";
+            string str = "INSERT INTO Matches VALUES ('" + buyerEID + "','" + sellerEID + "',N'" + status + "')";
             SqlCommand comm = new SqlCommand(str, con);
             comm.ExecuteNonQuery();
             con.Close();
@@ -26,7 +26,7 @@ namespace RealEstates.ServerSide
         public bool MatchExist(string buyerEID, string sellerEID)
         {
             con.Open();
-            string str = "select * from Matches where BuyerEstateId='" + buyerEID + "' and SellerEstateId='"+sellerEID+"'";
+            string str = "select * from Matches where BuyerEstateId='" + buyerEID + "' and SellerEstateId='" + sellerEID + "'";
             SqlCommand comm = new SqlCommand(str, con);
             SqlDataReader reader = comm.ExecuteReader();
             if (reader.Read())
@@ -51,7 +51,7 @@ namespace RealEstates.ServerSide
             {
                 Matches m = new Matches((string)reader[0], (string)reader[1], (string)reader[2]);
                 toReturn.AddLast(m);
-                
+
             }
             reader.Close();
             con.Close();
@@ -63,13 +63,13 @@ namespace RealEstates.ServerSide
         public LinkedList<Matches> getMatchesByType(int type)
         {
             LinkedList<Matches> toReturn = new LinkedList<Matches>();
-            string str="";
+            string str = "";
             con.Open();
-            if(type==0)
+            if (type == 0)
                 str = "select * from Matches where status=N'חדש'";
-            else if(type==1)
+            else if (type == 1)
                 str = "select * from Matches where status=N'פתוח'";
-            else if(type==2)
+            else if (type == 2)
                 str = "select * from Matches where status=N'סגור'";
             SqlCommand comm = new SqlCommand(str, con);
             SqlDataReader reader = comm.ExecuteReader();
@@ -82,6 +82,41 @@ namespace RealEstates.ServerSide
             reader.Close();
             con.Close();
             return toReturn;
+        }
+        //0-change to open matches
+        //1-change to closed maches
+        public void changeMatchStatus(int toStatus, string buyerEstateId, string sellerEstateId)
+        {
+            con.Open();
+            string changeTo = "";
+            if (toStatus == 0)
+                changeTo = "פתוח";
+            else if (toStatus == 1)
+                changeTo = "סגור";
+            string str = "update Matches set Matches.Status=N'" + changeTo + "' where Matches.BuyerEstateId='" + buyerEstateId + "' and Matches.SellerEstateId='" + sellerEstateId + "'";
+            SqlCommand comm = new SqlCommand(str, con);
+            comm.ExecuteNonQuery();
+            con.Close();
+        }
+        public bool isClosed(string buyerEstateId, string sellerEstateId)
+        {
+
+            con.Open();
+            string str = "select Status from Matches where BuyerEstateId='" + buyerEstateId + "' and SellerEstateId='" + sellerEstateId + "'";
+            SqlCommand comm = new SqlCommand(str, con);
+            SqlDataReader reader = comm.ExecuteReader();
+            if (reader.Read())
+            {
+                if (((string)reader[0]).Equals("סגור"))
+                {
+                    reader.Close();
+                    con.Close();
+                    return true;
+                }
+            }
+            reader.Close();
+            con.Close();
+            return false;
         }
     }
 }

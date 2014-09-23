@@ -5,18 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Moti
+namespace RealEstates
 {
-    public partial class MatchesPage : System.Web.UI.Page
+    public partial class MatchHistory : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-        protected void HistoryClicked(object sender, EventArgs e)
-        {
-            Response.Redirect("MatchHistory.aspx");
-        }
-       
     }
 }

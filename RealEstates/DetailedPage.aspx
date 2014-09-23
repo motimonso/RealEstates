@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>פרטי התאמה</h1>
+
     <%
         ClientsBL cbl = new ClientsBL();
         SellerEstateBL sbl = new SellerEstateBL();
@@ -10,7 +11,9 @@
         Client buyer = cbl.getFullBuyerByEstateId(buyerEstateId);
         Client seller = cbl.getFullSellerByEstateId(sellerEstateId);
         Seller sellerEstate = sbl.getFullSellerByEstateId(sellerEstateId);
+        MatchesBL mbl = new MatchesBL();
     %>
+
     <div class="row">
         <h3>פרטי הקונה :</h3>
     </div>
@@ -73,6 +76,10 @@
             <b class="detailB">סורגים :</b><b><%=sellerEstate.Bars %></b><br />
             <b class="detailB">פלדלת :</b><b><%=sellerEstate.Pladelet %></b><br />
         </div>
+    </div>
+    <div class="row fixRTL">
+        <br />
+        <asp:Button runat="server" ID="closeButton" OnClick="closePressed" Text="סגור התאמה" />
     </div>
 
 

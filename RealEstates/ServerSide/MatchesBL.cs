@@ -110,5 +110,16 @@ namespace RealEstates.ServerSide
         {
             return md.getMatchesByType(type);
         }
+
+        //0-change to open matches
+        //1-change to closed maches
+        public void changeMatchStatus(int toStatus, string buyerEstateId, string sellerEstateId)
+        {
+            md.changeMatchStatus(toStatus, buyerEstateId, sellerEstateId);
+        }
+        public bool isClosed(string buyerEstateId, string sellerEstateId)
+        {
+            return md.isClosed(buyerEstateId, sellerEstateId);
+        }
     }
 }
