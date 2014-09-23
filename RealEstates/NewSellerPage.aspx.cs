@@ -23,63 +23,50 @@ namespace Moti
                 BindFloorNumber();
                 BindFourItems();
                 BindYesNo();
+                RadioButtonExist.Checked = true;
+                Panel1.Enabled = false;
             }
-            RadioButton1.Checked = true;
-            if (RadioButton2.Checked)
-                RadioButton1.Checked = false;
+           
 
 
-        }
-        protected void BindDDLCities()
-        {
-            ddlCities.Items.Add("בחר עיר");
-            AddressBL abl=new AddressBL();
-            LinkedList<ListItem> l=abl.getAllCities();
-            foreach (ListItem li in l)
-                ddlCities.Items.Add(li);
         }
         
-        protected void Button1Changed(object sender, EventArgs e)
-        {
-            RadioButton2.Checked = false;
-            TextBox2.Text = "";
-            TextBox3.Text = "";
-            TextBox4.Text = "";
-            TextBox5.Text = "";
-            TextBox6.Text = "";
-            TextBox7.Text = "";
-        }
-        protected void Button2Changed(object sender, EventArgs e)
-        {
-            RadioButton1.Checked = false;
-            TextBox1.Text = "";
-        }
 
+        protected void radiobuttonChenched(object sender, EventArgs e)
+        {
+            ExistUserErrorLabel.Visible = false;
+            NewUserErrorLabel.Visible = false;
+            if(RadioButtonExist.Checked == false)
+            {
+                Panel1.Enabled = true;
+            }
+            else
+            {
+                Panel1.Enabled = false;
+            }
+        }
         protected void SendNewSeller(object sender, EventArgs e)
         {
            if (validUserField() && validEstateField())
            {
                ClientsBL cbl = new ClientsBL();
                SellerEstateBL sbl = new SellerEstateBL();
-               string id;
-               if (RadioButton1.Checked)
-                   id = TextBox1.Text;
-               else
-               {
-                   id = TextBox2.Text;
-                   cbl.NewClient(TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text, TextBox7.Text);
-               }
+               if (!RadioButtonExist.Checked)
+                   cbl.NewClient(TextBoxID.Text, TextBoxFName.Text, TextBoxLName.Text, TextBoxP1.Text, TextBoxP2.Text, TextBoxP3.Text);
                //Add To DB
-               sbl.NewSellerEstate(id, ddlEstateKind.SelectedItem.Text, TextBox9.Text, ddlCities.SelectedItem.Text,ddlHood.SelectedItem.Text,ddlStreet.SelectedItem.Text,TextBox13.Text,ddlBedroomNum.SelectedItem.Text,TextBox15.Text,ddlFloorNumber.SelectedItem.Text,ddlStairs.SelectedItem.Text,ddlElavator.SelectedItem.Text,ddlBalcony.SelectedItem.Text,ddlToilet.SelectedItem.Text,ddlShowers.SelectedItem.Text,ddlStorge.SelectedItem.Text,ddlParking.SelectedItem.Text,TextBox24.Text,ddlRenovated.SelectedItem.Text,ddlBoyler.SelectedItem.Text,ddlBars.SelectedItem.Text,ddlPladelet.SelectedItem.Text);
-               OKmessage();
+               sbl.NewSellerEstate(TextBoxID.Text, ddlEstateKind.SelectedItem.Text, TextBox9.Text, ddlCities.SelectedItem.Text,ddlHood.SelectedItem.Text,ddlStreet.SelectedItem.Text,TextBox13.Text,ddlBedroomNum.SelectedItem.Text,TextBox15.Text,ddlFloorNumber.SelectedItem.Text,ddlStairs.SelectedItem.Text,ddlElavator.SelectedItem.Text,ddlBalcony.SelectedItem.Text,ddlToilet.SelectedItem.Text,ddlShowers.SelectedItem.Text,ddlStorge.SelectedItem.Text,ddlParking.SelectedItem.Text,TextBox24.Text,ddlRenovated.SelectedItem.Text,ddlBoyler.SelectedItem.Text,ddlBars.SelectedItem.Text,ddlPladelet.SelectedItem.Text);
                Response.Redirect("MainPage.aspx",false);
-
-           
            }
         }
-       
-        
 
+        protected void BindDDLCities()
+        {
+            ddlCities.Items.Add("בחר עיר");
+            AddressBL abl = new AddressBL();
+            LinkedList<ListItem> l = abl.getAllCities();
+            foreach (ListItem li in l)
+                ddlCities.Items.Add(li);
+        }
         protected void ddlCities_SelectedIndexChanged(object sender, EventArgs e)
         {
            
@@ -99,7 +86,6 @@ namespace Moti
             }
            
         }
-
         protected void ddlHood_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -121,20 +107,18 @@ namespace Moti
 
         protected void ClearClicked(object sender, EventArgs e)
         {
-            TextBox1.Text = "";
-            TextBox2.Text = "";
-            TextBox3.Text = "";
-            TextBox4.Text = "";
-            TextBox5.Text = "";
-            TextBox6.Text = "";
-            TextBox7.Text = "";
+            TextBoxID.Text = "";
+            TextBoxLName.Text = "";
+            TextBoxFName.Text = "";
+            TextBoxP1.Text = "";
+            TextBoxP2.Text = "";
+            TextBoxP3.Text = "";
             ddlEstateKind.SelectedIndex=0;
             TextBox9.Text = "";
             TextBox13.Text = "";
             ddlBedroomNum.SelectedIndex = 0;
             TextBox15.Text = "";
             ddlFloorNumber.SelectedIndex = 0;
-
             ddlBars.SelectedIndex = 0;
             ddlBoyler.SelectedIndex = 0;
             ddlParking.SelectedIndex = 0;
@@ -143,23 +127,18 @@ namespace Moti
             ddlStairs.SelectedIndex = 0;
             ddlStorge.SelectedIndex = 0;
             ddlElavator.SelectedIndex = 0;
-            
             ddlBalcony.SelectedIndex = 0;
             ddlToilet.SelectedIndex = 0;
-           
             TextBox24.Text = "";
-           
-
             ddlCities.Items.Clear();
             BindDDLCities();
             ddlHood.Items.Clear();
             ddlStreet.Items.Clear();
-
-            RadioButton1.Checked = true;
-            RadioButton2.Checked = false;
-
+            RadioButtonExist.Checked = true;
+            RadioButtonNew.Checked = false;
             ExistUserErrorLabel.Visible = false;
             NewUserErrorLabel.Visible = false;
+            EstateErrorLabel.Visible = false;
         }
 
         protected void BindEstateType()
@@ -180,7 +159,6 @@ namespace Moti
                 ddlBedroomNum.Items.Add(i.ToString());
             }
         }
-
         protected void BindFloorNumber()
         {
             ddlFloorNumber.Items.Add("בחר");
@@ -191,14 +169,11 @@ namespace Moti
             }
             ddlFloorNumber.Items.Add("20+");
         }
-
         protected void BindFourItems()
         {
             ddlBalcony.Items.Add("בחר");
             ddlShowers.Items.Add("בחר");
             ddlToilet.Items.Add("בחר");
-
-
             for (int i = 0; i < 4; i++)
             {
                 ddlBalcony.Items.Add(i.ToString());
@@ -206,8 +181,6 @@ namespace Moti
                 ddlShowers.Items.Add(t.ToString());
                 ddlToilet.Items.Add(t.ToString());
             }
-
-
         }
 
         protected void BindYesNo()
@@ -244,21 +217,19 @@ namespace Moti
             ExistUserErrorLabel.Visible = false;
             NewUserErrorLabel.Visible = false;
             ClientsBL cbl = new ClientsBL();
-            if (RadioButton1.Checked)
+            if (RadioButtonExist.Checked)
             {
-                if (TextBox1.Text != "") // Only If The Word Isnt Empty Do The Rest
+                if (TextBoxID.Text != "") // Only If The Word Isnt Empty Do The Rest
                 {
-                    if (GeneralMethods.IsDigitsOnly(TextBox1.Text))
+                    if (GeneralMethods.IsDigitsOnly(TextBoxID.Text))
                     {
-                        if (!cbl.ClientExist(TextBox1.Text))
+                        if (!cbl.ClientExist(TextBoxID.Text))
                         {
                             ExistUserErrorLabel.Text = "מספר הזהות שגוי או שאינו קיים במערכת";
                             ExistUserErrorLabel.Visible = true;
                             return  false;
                         }
-
                     }
-
                     else
                     {
                         ExistUserErrorLabel.Text = "אנא הכנס ספרות בלבד בתעודת הזהות";
@@ -274,35 +245,31 @@ namespace Moti
                 }
             } // End Of Existing User
 
-            else if (RadioButton2.Checked)
+            else if (RadioButtonNew.Checked)
             {
-                if (TextBox2.Text != "" && TextBox3.Text != "" && TextBox4.Text != "" && TextBox5.Text != "")
+                if (TextBoxID.Text != "" && TextBoxFName.Text != "" && TextBoxLName.Text != "" && TextBoxP1.Text != "")
                 // Check If Id ,fName ,Lname And Phone1 TextBoxes Are Filled
                 {
-                    if (cbl.ClientExist(TextBox2.Text))
+                    if (cbl.ClientExist(TextBoxID.Text))
                     {
                         NewUserErrorLabel.Text = "מספר הזהות כבר קיים במערכת";
                         NewUserErrorLabel.Visible = true;
                         return  false;
-
                     }
                     else
                     {
-                        if (!GeneralMethods.IsDigitsOnly(TextBox2.Text) || !GeneralMethods.IsDigitsOnly(TextBox5.Text) || !GeneralMethods.IsDigitsOnly(TextBox6.Text) || !GeneralMethods.IsDigitsOnly(TextBox7.Text))
+                        if (!GeneralMethods.IsDigitsOnly(TextBoxID.Text) || !GeneralMethods.IsDigitsOnly(TextBoxP1.Text) || !GeneralMethods.IsDigitsOnly(TextBoxP2.Text) || !GeneralMethods.IsDigitsOnly(TextBoxP3.Text))
                         {
                             NewUserErrorLabel.Text = "תעודת זהות ומספרי טלפון חייבים להכיל ספרות בלבד";
                             NewUserErrorLabel.Visible = true;
                             return  false;
                         }
-                        else if (!((Regex.IsMatch(TextBox3.Text, @"^[a-zA-Z ]+$") && Regex.IsMatch(TextBox4.Text, @"^[a-zA-Z ]+$")) || (Regex.IsMatch(TextBox3.Text, @"^[א-ת ]+$") && Regex.IsMatch(TextBox4.Text, @"^[א-ת ]+$"))))// Check If Only Letters In The FirstName And LastNmae TextBoxes Hebrow And English
+                        else if (!((Regex.IsMatch(TextBoxFName.Text, @"^[a-zA-Z ]+$") && Regex.IsMatch(TextBoxLName.Text, @"^[a-zA-Z ]+$")) || (Regex.IsMatch(TextBoxFName.Text, @"^[א-ת ]+$") && Regex.IsMatch(TextBoxLName.Text, @"^[א-ת ]+$"))))// Check If Only Letters In The FirstName And LastNmae TextBoxes Hebrow And English
                         {
-                            ///////////////////
                             NewUserErrorLabel.Text = "שם פרטי ומשפחה חייבים להכיל אותיות בלבד";
                             NewUserErrorLabel.Visible = true;
                             return false;
                         }
-
-
                     }
                 }
                 else
@@ -346,21 +313,6 @@ namespace Moti
                 return false;
             }
             else return true;
-
-        }
-
-        public void OKmessage()
-        {
-          string message = "Hello! Mudassar.";
-          System.Text.StringBuilder sb = new System.Text.StringBuilder();
-          sb.Append("<script type = 'text/javascript'>");
-          sb.Append("window.onload=function(){");
-          sb.Append("alert('");
-          sb.Append(message);
-          sb.Append("')};");
-          sb.Append("</script>");
-          ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
-
         }
     }
 }

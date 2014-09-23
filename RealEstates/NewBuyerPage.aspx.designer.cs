@@ -13,13 +13,13 @@ namespace Moti {
     public partial class WebForm2 {
         
         /// <summary>
-        /// RadioButton1 control.
+        /// RadioButtonExist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButtonExist;
         
         /// <summary>
         /// ExistUserErrorLabel control.
@@ -31,31 +31,13 @@ namespace Moti {
         protected global::System.Web.UI.WebControls.Label ExistUserErrorLabel;
         
         /// <summary>
-        /// Lable1 control.
+        /// RadioButtonNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lable1;
-        
-        /// <summary>
-        /// TextBox1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
-        /// <summary>
-        /// RadioButton2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
+        protected global::System.Web.UI.WebControls.RadioButton RadioButtonNew;
         
         /// <summary>
         /// NewUserErrorLabel control.
@@ -67,112 +49,121 @@ namespace Moti {
         protected global::System.Web.UI.WebControls.Label NewUserErrorLabel;
         
         /// <summary>
-        /// LabelNewID control.
+        /// Label30 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelNewID;
+        protected global::System.Web.UI.WebControls.Label Label30;
         
         /// <summary>
-        /// TextBox2 control.
+        /// TextBoxID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxID;
         
         /// <summary>
-        /// LabelFName control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelFName;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// TextBox3 control.
+        /// Label31 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.Label Label31;
         
         /// <summary>
-        /// LabelLName control.
+        /// TextBoxFName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelLName;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxFName;
         
         /// <summary>
-        /// TextBox4 control.
+        /// Label32 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.Label Label32;
         
         /// <summary>
-        /// LabelP1 control.
+        /// TextBoxLName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelP1;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxLName;
         
         /// <summary>
-        /// TextBox5 control.
+        /// Label33 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.Label Label33;
         
         /// <summary>
-        /// LabelP2 control.
+        /// TextBoxP1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelP2;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxP1;
         
         /// <summary>
-        /// TextBox6 control.
+        /// Label34 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.Label Label34;
         
         /// <summary>
-        /// LabelP3 control.
+        /// TextBoxP2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelP3;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxP2;
         
         /// <summary>
-        /// TextBox7 control.
+        /// Label35 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+        protected global::System.Web.UI.WebControls.Label Label35;
+        
+        /// <summary>
+        /// TextBoxP3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxP3;
         
         /// <summary>
         /// EstateErrorLabel control.

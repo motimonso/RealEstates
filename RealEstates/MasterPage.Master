@@ -61,10 +61,10 @@
                 <uc1:Header runat="server" ID="Header" />
                     
 
-                <div class="row">
-                    <div class="col-sm-1 col-xs-push-11">
+                <div class=" fixRTL">
+                    
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">תפריט</a>
-                    </div>
+                   
                 </div>
                 
                 <div class="row">

@@ -20,28 +20,25 @@ namespace Moti
                 BindBedroomNumber();
                 BindFloorNumber();
                 BindYesNo();
+                RadioButtonExist.Checked = true;
+                Panel1.Enabled = false;
             }
-            RadioButton1.Checked = true;
-            if (RadioButton2.Checked)
-                RadioButton1.Checked = false;
+           
         }
 
-        protected void Button1Changed(object sender, EventArgs e)
+        protected void radiobuttonChenched(object sender, EventArgs e)
         {
-            RadioButton2.Checked = false;
-            TextBox2.Text = "";
-            TextBox3.Text = "";
-            TextBox4.Text = "";
-            TextBox5.Text = "";
-            TextBox6.Text = "";
-            TextBox7.Text = "";
+            ExistUserErrorLabel.Visible = false;
+            NewUserErrorLabel.Visible = false;
+            if (RadioButtonExist.Checked == false)
+            {
+                Panel1.Enabled = true;
+            }
+            else
+            {
+                Panel1.Enabled = false;
+            }
         }
-        protected void Button2Changed(object sender, EventArgs e)
-        {
-            RadioButton1.Checked = false;
-            TextBox1.Text = "";
-        }
-
         protected void SendNewBuyer(object sender, EventArgs e)
         {
             if (validUserField() && validEstateField())
@@ -49,23 +46,17 @@ namespace Moti
                 ClientsBL cbl = new ClientsBL();
                 BuyerEstateBL sbl = new BuyerEstateBL();
                 string id;
-                if (RadioButton1.Checked)
-                    id = TextBox1.Text;
-                else
-                {
-                    id = TextBox2.Text;
-                    cbl.NewClient(TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text, TextBox7.Text);
-                }
+                if (!RadioButtonExist.Checked)
+                    cbl.NewClient(TextBoxID.Text, TextBoxFName.Text, TextBoxLName.Text, TextBoxP1.Text, TextBoxP2.Text, TextBoxP3.Text);
+                
                 string hoodCheck = ddlHood.SelectedItem.Text;
                 if(ddlHood.SelectedIndex==0)
                 {
                     hoodCheck = "";
                 }
-                sbl.NewBuyerEstate(id,ddlEstateKind.SelectedItem.Text,ddlCities.SelectedItem.Text,hoodCheck,ddlBedroomNumFrom.SelectedItem.Text,ddlBedroomNumTo.SelectedItem.Text,TextBox13.Text,TextBox14.Text,ddlFloorFrom.SelectedItem.Text,ddlFloorTo.SelectedItem.Text,ddlGarden.SelectedItem.Text,TextBox18.Text,TextBox19.Text);
-                OKmessage();
+                //Add To DB
+                sbl.NewBuyerEstate(TextBoxID.Text,ddlEstateKind.SelectedItem.Text,ddlCities.SelectedItem.Text,hoodCheck,ddlBedroomNumFrom.SelectedItem.Text,ddlBedroomNumTo.SelectedItem.Text,TextBox13.Text,TextBox14.Text,ddlFloorFrom.SelectedItem.Text,ddlFloorTo.SelectedItem.Text,ddlGarden.SelectedItem.Text,TextBox18.Text,TextBox19.Text);
                 Response.Redirect("MainPage.aspx", false);
-
-
             }
         }
 
@@ -96,13 +87,13 @@ namespace Moti
         }
         protected void ClearClicked(object sender, EventArgs e)
         {
-            TextBox1.Text = "";
-            TextBox2.Text = "";
-            TextBox3.Text = "";
-            TextBox4.Text = "";
-            TextBox5.Text = "";
-            TextBox6.Text = "";
-            TextBox7.Text = "";
+            
+            TextBoxID.Text = "";
+            TextBoxFName.Text = "";
+            TextBoxLName.Text = "";
+            TextBoxP1.Text = "";
+            TextBoxP2.Text = "";
+            TextBoxP3.Text = "";
             TextBox13.Text = "";
             TextBox14.Text = "";
             TextBox18.Text = "";
@@ -110,8 +101,8 @@ namespace Moti
             ddlCities.Items.Clear();
             BindDDLCities();
             ddlHood.Items.Clear();
-            RadioButton1.Checked = true;
-            RadioButton2.Checked = false;
+            RadioButtonExist.Checked = true;
+            RadioButtonNew.Checked = false;
             ExistUserErrorLabel.Visible = false;
             NewUserErrorLabel.Visible = false;
         }
@@ -160,13 +151,13 @@ namespace Moti
             ExistUserErrorLabel.Visible = false;
             NewUserErrorLabel.Visible = false;
             ClientsBL cbl = new ClientsBL();
-            if (RadioButton1.Checked)
+            if (RadioButtonExist.Checked)
             {
-                if (TextBox1.Text != "") // Only If The Word Isnt Empty Do The Rest
+                if (TextBoxID.Text != "") // Only If The Word Isnt Empty Do The Rest
                 {
-                    if (GeneralMethods.IsDigitsOnly(TextBox1.Text))
+                    if (GeneralMethods.IsDigitsOnly(TextBoxID.Text))
                     {
-                        if (!cbl.ClientExist(TextBox1.Text))
+                        if (!cbl.ClientExist(TextBoxID.Text))
                         {
                             ExistUserErrorLabel.Text = "מספר הזהות שגוי או שאינו קיים במערכת";
                             ExistUserErrorLabel.Visible = true;
@@ -188,12 +179,12 @@ namespace Moti
                 }
             } // End Of Existing User
 
-            else if (RadioButton2.Checked)
+            else if (RadioButtonNew.Checked)
             {
-                if (TextBox2.Text != "" && TextBox3.Text != "" && TextBox4.Text != "" && TextBox5.Text != "")
+                if (TextBoxID.Text != "" && TextBoxFName.Text != "" && TextBoxLName.Text != "" && TextBoxP1.Text != "")
                 // Check If Id ,fName ,Lname And Phone1 TextBoxes Are Filled
                 {
-                    if (cbl.ClientExist(TextBox2.Text))
+                    if (cbl.ClientExist(TextBoxID.Text))
                     {
                         NewUserErrorLabel.Text = "מספר הזהות כבר קיים במערכת";
                         NewUserErrorLabel.Visible = true;
@@ -201,13 +192,13 @@ namespace Moti
                     }
                     else
                     {
-                        if (!GeneralMethods.IsDigitsOnly(TextBox2.Text) || !GeneralMethods.IsDigitsOnly(TextBox5.Text) || !GeneralMethods.IsDigitsOnly(TextBox6.Text) || !GeneralMethods.IsDigitsOnly(TextBox7.Text))
+                        if (!GeneralMethods.IsDigitsOnly(TextBoxID.Text) || !GeneralMethods.IsDigitsOnly(TextBoxP1.Text) || !GeneralMethods.IsDigitsOnly(TextBoxP2.Text) || !GeneralMethods.IsDigitsOnly(TextBoxP3.Text))
                         {
                             NewUserErrorLabel.Text = "תעודת זהות ומספרי טלפון חייבים להכיל ספרות בלבד";
                             NewUserErrorLabel.Visible = true;
                             return false;
                         }
-                        else if (!((Regex.IsMatch(TextBox3.Text, @"^[a-zA-Z ]+$") && Regex.IsMatch(TextBox4.Text, @"^[a-zA-Z ]+$")) || (Regex.IsMatch(TextBox3.Text, @"^[א-ת ]+$") && Regex.IsMatch(TextBox4.Text, @"^[א-ת ]+$"))))// Check If Only Letters In The FirstName And LastNmae TextBoxes Hebrow And English
+                        else if (!((Regex.IsMatch(TextBoxFName.Text, @"^[a-zA-Z ]+$") && Regex.IsMatch(TextBoxLName.Text, @"^[a-zA-Z ]+$")) || (Regex.IsMatch(TextBoxFName.Text, @"^[א-ת ]+$") && Regex.IsMatch(TextBoxLName.Text, @"^[א-ת ]+$"))))// Check If Only Letters In The FirstName And LastNmae TextBoxes Hebrow And English
                         {
                             NewUserErrorLabel.Text = "שם פרטי ומשפחה חייבים להכיל אותיות בלבד";
                             NewUserErrorLabel.Visible = true;
@@ -268,19 +259,6 @@ namespace Moti
                 return false;
             }
             else return true;
-
-        }
-        public void OKmessage()
-        {
-            string message = "Hello! Mudassar.";
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            sb.Append("<script type = 'text/javascript'>");
-            sb.Append("window.onload=function(){");
-            sb.Append("alert('");
-            sb.Append(message);
-            sb.Append("')};");
-            sb.Append("</script>");
-            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
 
         }
     }

@@ -1,72 +1,61 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="NewBuyerPage.aspx.cs" Inherits="Moti.WebForm2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row">
+     <div class="row fixCenter">
+
         <h1>הוספת קונה למאגר</h1>
     </div>
-   <div class="row">
-        <h3>פרטי הלקוח : </h3>
+    <div class="row fixRTL">
+        <a class="mediumHeader">פרטי הלקוח : </a>
     </div>
-    <div class="row">
-        <div class="col-lg-2 col-lg-push-11" style="text-align:left">
-            <asp:RadioButton GroupName="RadioButton" OnCheckedChanged="Button1Changed" ID="RadioButton1" runat="server" Text="לקוח קיים" TextAlign="Left" />
-        </div>
-        <div class="col-lg-2 col-lg-push-7">
-            <asp:Label runat="server" Visible="false" ID="ExistUserErrorLabel" Text="מספר הזהות שגוי או שאינו קיים במערכת" ForeColor="Red"></asp:Label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-3 col-lg-push-9  ">
-            <asp:Label ID="Lable1" runat="server" CssClass="DetailDiv" Text="תעודת זהות :"></asp:Label>
-            <asp:TextBox CssClass="largeDDL" ID="TextBox1" runat="server"></asp:TextBox>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-2 col-lg-push-11">
-            <asp:RadioButton GroupName="RadioButton" OnCheckedChanged="Button2Changed" ID="RadioButton2" runat="server" Text=" לקוח חדש " TextAlign="Left" />
-        </div>
-        <div class="col-lg-8 col-lg-push-1">
-            <asp:Label CssClass="DetailDiv" runat="server" Visible="false" Text="מספר הזהות קיים במערכת" ID="NewUserErrorLabel" ForeColor="Red"></asp:Label>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="DetailDiv">
-                <asp:Label CssClass="DetailsToFill" ID="LabelNewID" runat="server" Text="תעודת זהות :"></asp:Label>
-                <asp:TextBox CssClass="largeDDL" ID="TextBox2" runat="server"></asp:TextBox>
+    <div class="row fixRTL ">
+        <div class="row">
+            <div class="col-md-12">
+                <asp:RadioButton CssClass="fixPaddRight6PX" GroupName="ClientRadio" AutoPostBack="true" OnCheckedChanged="radiobuttonChenched" ID="RadioButtonExist" runat="server" Text="לקוח קיים" />
+                <asp:Label runat="server" Visible="false" ID="ExistUserErrorLabel" Text="מספר הזהות שגוי או שאינו קיים במערכת" ForeColor="Red"></asp:Label>
             </div>
-
-            <div class="DetailDiv">
-                <asp:Label CssClass="DetailsToFill" ID="LabelFName" runat="server" Text="שם פרטי :"></asp:Label>
-                <asp:TextBox CssClass="largeDDL" ID="TextBox3" runat="server"></asp:TextBox>
-            </div>
-
-            <div class="DetailDiv">
-                <asp:Label CssClass="DetailsToFill" ID="LabelLName" runat="server" Text="שם משפחה :"></asp:Label>
-                <asp:TextBox CssClass="largeDDL" ID="TextBox4" runat="server"></asp:TextBox>
-            </div>
-
-            <div class="DetailDiv">
-                <asp:Label CssClass="DetailsToFill" ID="LabelP1" runat="server" Text="טלפון 1 :"></asp:Label>
-                <asp:TextBox CssClass="largeDDL" ID="TextBox5" runat="server"></asp:TextBox>
-            </div>
-
-            <div class="DetailDiv">
-                <asp:Label CssClass="DetailsToFill" ID="LabelP2" runat="server" Text="טלפון 2 :"></asp:Label>
-                <asp:TextBox CssClass="largeDDL" ID="TextBox6" runat="server"></asp:TextBox>
-            </div>
-
-            <div class="DetailDiv">
-                <asp:Label CssClass="DetailsToFill" ID="LabelP3" runat="server" Text="טלפון 3 :"></asp:Label>
-                <asp:TextBox CssClass="largeDDL" ID="TextBox7" runat="server"></asp:TextBox>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <asp:RadioButton CssClass="fixPaddRight6PX" GroupName="ClientRadio" AutoPostBack="true" OnCheckedChanged="radiobuttonChenched" ID="RadioButtonNew" runat="server" Text="לקוח חדש" />
+                <asp:Label runat="server" Visible="false" ID="NewUserErrorLabel" Text="מספר הזהות קיים במערכת" ForeColor="Red"></asp:Label>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-2 col-lg-push-10">
-            <h3>פרטי הנכס : </h3>
-            <asp:Label class="DetailsHeader" ID="EstateErrorLabel" runat="server" ForeColor="Red" Text="חובה להזין את כל הפרטים" Visible="False"></asp:Label>
+        <div class="col-md-12">
+            <div class="DetailDiv">
+                <asp:Label CssClass="DetailsToFill" ID="Label30" runat="server" Text="תעודת זהות :"></asp:Label>
+                <asp:TextBox CssClass="largeDDL" ID="TextBoxID" runat="server"></asp:TextBox>
+            </div>
+            <asp:Panel ID="Panel1" runat="server">
+                <div class="DetailDiv">
+                    <asp:Label CssClass="DetailsToFill" ID="Label31" runat="server" Text="שם פרטי :"></asp:Label>
+                    <asp:TextBox CssClass="largeDDL" ID="TextBoxFName" runat="server"></asp:TextBox>
+                </div>
+                <div class="DetailDiv">
+                    <asp:Label CssClass="DetailsToFill" ID="Label32" runat="server" Text="שם משפחה :"></asp:Label>
+                    <asp:TextBox CssClass="largeDDL" ID="TextBoxLName" runat="server"></asp:TextBox>
+                </div>
+                <div class="DetailDiv">
+                    <asp:Label CssClass="DetailsToFill" ID="Label33" runat="server" Text="טלפון 1 :"></asp:Label>
+                    <asp:TextBox CssClass="largeDDL" ID="TextBoxP1" runat="server"></asp:TextBox>
+                </div>
+                <div class="DetailDiv">
+                    <asp:Label CssClass="DetailsToFill" ID="Label34" runat="server" Text="טלפון 2 :"></asp:Label>
+                    <asp:TextBox CssClass="largeDDL" ID="TextBoxP2" runat="server"></asp:TextBox>
+                </div>
+                <div class="DetailDiv">
+                    <asp:Label CssClass="DetailsToFill" ID="Label35" runat="server" Text="טלפון 3 :"></asp:Label>
+                    <asp:TextBox CssClass="largeDDL" ID="TextBoxP3" runat="server"></asp:TextBox>
+                </div>
+            </asp:Panel>
+        </div>
+    </div>
+    <div class="row fixRTL">
+        <div class="col-md-12">
+            <a class="mediumHeader">פרטי הנכס : </a>
+            <asp:Label ID="EstateErrorLabel" runat="server" ForeColor="Red" Text="חובה להזין את כל הפרטים" Visible="False"></asp:Label>
         </div>
     </div>
     <div class="row">
@@ -134,7 +123,7 @@
     </div>
     <br />
     <div class="row">
-        <div id="Buttons">
+        <div class="col-md-12 fixCenter fixRTL">
             <asp:Button runat="server" ID="SendButton" Text="שלח" OnClick="SendNewBuyer" />
             <asp:Button runat="server" ID="ClearButton" Text="נקה" OnClick="ClearClicked" />
         </div>

@@ -154,3 +154,16 @@ label{
     .linkA{
        font-size:large; 
     }
+    .fixRTL{
+        direction:rtl;
+    }
+    .fixPaddRight6PX{
+        padding-right:6px;
+    }
+    .fixCenter{
+        text-align:center;
+        margin:0 auto;
+    }
+    .mediumHeader{
+        font-size:x-large;
+    }

@@ -111,3 +111,7 @@ box-shadow: none;
     border-radius:20px;
     
 }
+.fixCenter {
+    text-align: center;
+    margin: 0 auto;
+}

@@ -16,8 +16,8 @@
     <div class="container">
         <form id="form1" runat="server">
             <div class="row">
-                    <div class="col-lg-6 col-lg-push-3">
-                        <img alt="logo" class="img-responsive" src="img/logo.jpg" />
+                    <div class="col-lg-12  ">
+                        <img alt="logo" class="img-responsive fixCenter" src="img/logo.jpg" />
                     </div>
             </div>
             <div class="login">

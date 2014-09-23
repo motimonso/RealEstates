@@ -21,7 +21,7 @@
             <b class="detailB">טלפון 1 :</b><b><%=buyer.P1 %></b>
             <%if (!buyer.P2.Equals(""))
               { %>
-            <b class="detailB">2 :</b> <b><%=buyer.P2 %></b>
+            <b class="detailB">טלפון 2 :</b> <b><%=buyer.P2 %></b>
             <%} if (!buyer.P3.Equals(""))
               { %>
             <b class="detailB">טלפון 3 :</b> <b><%=buyer.P3 %></b>
