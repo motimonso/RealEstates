@@ -160,6 +160,10 @@ label{
     .fixPaddRight6PX{
         padding-right:6px;
     }
+    .fixFeed{
+        padding-left:0px;
+        padding-right:13px;
+    }
     .fixCenter{
         text-align:center;
         margin:0 auto;
@@ -167,3 +171,12 @@ label{
     .mediumHeader{
         font-size:20px;
     }
+
+    .sideBarButton{
+        width:90px;
+        height:35px;
+        left: 45px;
+        position: relative;
+        border-radius:10px;
+    }
+   

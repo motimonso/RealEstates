@@ -40,64 +40,63 @@
 
 <body>
     <%
-    if (Session.Count == 0)
+        if (Session.Count == 0)
             Response.Redirect("/LoginPage.aspx");
-         %>
+    %>
     <form id="form1" runat="server">
 
-    <div id="wrapper">
+        <div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <uc1:SideBar runat="server" id="SideBar" />
-        </div>
-        <!-- /#sidebar-wrapper -->
-        
-        <!-- Page Content -->
-        <div id="page-content-wrapper" >
-            
-            <div class="container-fluid">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <uc1:SideBar runat="server" ID="SideBar" />
+            </div>
+            <!-- /#sidebar-wrapper -->
 
-                <uc1:Header runat="server" ID="Header" />
-                    
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
 
-                <div class=" fixRTL">
-                    
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">תפריט</a>
-                   
-                </div>
-                
-                <div class="row">
-                    <div class="col-lg-12 " >
-                        
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <div class="container-fluid ">
+                    <div class="row ">
+                        <uc1:Header runat="server" ID="Header" />
+                    </div>
 
-                        </asp:ContentPlaceHolder>
-                        
-                        
-                        
+                    <div class="row fixRTL">
+
+                        <img class="sideBarButton" src="img/arrowRight.jpg" id="menu-toggle" />
+
+                    </div>
+
+                    <div class="row fixRTL">
+                        <div class="col-lg-12 ">
+
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+
+
+
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- /#page-content-wrapper -->
+
         </div>
-        <!-- /#page-content-wrapper -->
+        <!-- /#wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+        <!-- jQuery Version 1.11.0 -->
+        <script src="js/jquery-1.11.0.js"></script>
 
-    <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery-1.11.0.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
-        $("#menu-toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
+        <!-- Menu Toggle Script -->
+        <script>
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+        </script>
 
     </form>
 
@@ -105,4 +104,4 @@
 
 </html>
 
-   
+

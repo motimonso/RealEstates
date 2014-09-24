@@ -64,6 +64,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="img\arrowLeft.jpg" />
+    <Content Include="img\arrowRight.jpg" />
     <Content Include="img\rsz_capture.jpg" />
     <Content Include="MasterPage.Master" />
     <None Include="Web.Debug.config">

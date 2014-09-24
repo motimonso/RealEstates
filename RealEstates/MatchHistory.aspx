@@ -17,12 +17,12 @@
                 string sellerAddress = sbl.getFullAddressByEstateID(m.SellerEstateId);   
         %>
         <div class="row">
-            <div class="col-lg-6 col-lg-push-6 matchDiv">
+            <div class="col-lg-7 col-lg-push-5 matchDiv">
                 <b class="detailB">נמצאה התאמה ל: </b>
                 <b><%=buyerName %></b>
                 &nbsp
-                <b>ב: </b>
-                <b class="detailB"><%=sellerAddress %></b>
+                <b class="detailB">ב: </b>
+                <b ><%=sellerAddress %></b>
                 &nbsp
                 <a href="DetailedPage.aspx?buyerEstateId=<%=m.BuyerEstateId %> &sellerEstateId=<%=m.SellerEstateId %> ">הצג פרטים</a>
             </div>

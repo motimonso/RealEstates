@@ -15,7 +15,7 @@
                 string sellerAddress = sbl.getFullAddressByEstateID(m.SellerEstateId);
         %>
         <div class="row">
-            <div class="col-lg-6 col-lg-push-6 matchDiv">
+            <div class="col-lg-7 col-lg-push-5 matchDiv">
                 <b class="detailB">נמצאה התאמה ל: </b>
                 <b><%=buyerName %></b>
                 &nbsp
@@ -38,7 +38,7 @@
                 string sellerAddress = sbl.getFullAddressByEstateID(m.SellerEstateId);   
         %>
        <div class="row">
-            <div class="col-lg-6 col-lg-push-6 matchDiv">
+            <div class="col-lg-7 col-lg-push-5 matchDiv">
                 <b class="detailB">נמצאה התאמה ל: </b>
                 <b><%=buyerName %></b>
                 &nbsp
