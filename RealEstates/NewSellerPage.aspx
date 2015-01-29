@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="NewSellerPage.aspx.cs" Inherits="Moti.WebForm3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript">
+
+    </script>
     <div class="row fixCenter">
 
         <h1>הוספת מוכר למאגר</h1>
