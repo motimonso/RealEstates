@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -8,10 +9,10 @@ namespace RealEstates.ServerSide
 {
     public class SellerEstateDAL
     {
-         private SqlConnection con;
+         private MySqlConnection con;
          public SellerEstateDAL()
         {
-            con = new SqlConnection(GeneralMethods.getSqlString());
+            con = new MySqlConnection(GeneralMethods.getSqlString());
         }
          public void NewSellerEstate(string sellerID,string estateType, string price, string city, string hood, string street,
              string number, string numOfBedroom, string area, string floor, string stairs, string elavator,
@@ -25,7 +26,7 @@ namespace RealEstates.ServerSide
                  + "',N'" + floor + "',N'" + stairs + "',N'" + elavator + "','" + numOfBalcony + "','" + toilet
                  + "','" + shower + "',N'" + storge + "',N'" + parking + "','" + garden + "',N'" + renovate
                  + "',N'" + boyler + "',N'" + bars + "',N'" + pladelet + "')";
-             SqlCommand comm = new SqlCommand(str, con);
+            MySqlCommand comm = new MySqlCommand(str, con);
              comm.ExecuteNonQuery();
              con.Close();
          }
@@ -34,8 +35,8 @@ namespace RealEstates.ServerSide
              LinkedList<Seller> toReturn = new LinkedList<Seller>();
              con.Open();
              string str = "select * from SellerEstates";
-             SqlCommand comm = new SqlCommand(str, con);
-             SqlDataReader reader = comm.ExecuteReader();
+             MySqlCommand comm = new MySqlCommand(str, con);
+             MySqlDataReader reader = comm.ExecuteReader();
 
              while (reader.Read())
              {
@@ -54,8 +55,8 @@ namespace RealEstates.ServerSide
          {
              con.Open();
              string str = "select city,neighborhood,street,number from SellerEstates where SellerEstates.EstateID='" + id + "'";
-             SqlCommand comm = new SqlCommand(str, con);
-             SqlDataReader reader = comm.ExecuteReader();
+             MySqlCommand comm = new MySqlCommand(str, con);
+             MySqlDataReader reader = comm.ExecuteReader();
              string toReturn = "";
              if (reader.Read())
              {
@@ -70,8 +71,8 @@ namespace RealEstates.ServerSide
             Seller toReturn = null;
             con.Open();
             string str = "select * from SellerEstates where SellerEstates.estateId='"+estateId+"'";
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
 
            if(reader.Read())
             {
@@ -102,8 +103,8 @@ namespace RealEstates.ServerSide
                 str += "SellerEstates.city=N'" + city + "' and SellerEstates.estateType=N'" + kind + "'";
             if (!city.Equals("0") && hood.Equals("0") && kind.Equals("0"))
                 str += "SellerEstates.city=N'" + city + "'"; 
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
 
             while (reader.Read())
             {

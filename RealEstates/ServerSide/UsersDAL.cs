@@ -1,4 +1,5 @@
-﻿using RealEstates.ServerSide;
+﻿using MySql.Data.MySqlClient;
+using RealEstates.ServerSide;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,11 +10,11 @@ namespace RealEstates.serverSide
 {
     public class UsersDAL
     {
-        private SqlConnection con;
+        private MySqlConnection con;
         public UsersDAL()
         {
 
-            con = new SqlConnection(GeneralMethods.getSqlString());
+            con = new MySqlConnection(GeneralMethods.getSqlString());
         }
 
         public string GetUser(string uName, string uPassword) // Return User Full Name If Exists
@@ -21,9 +22,9 @@ namespace RealEstates.serverSide
 
             string toReturn = null;
             con.Open();
-            string str = "select fullName from Users where Users.userName = '" + uName + "' and Users.userPassword = '" + uPassword + "'";
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            string str = "SELECT fullName FROM Users WHERE userName = '" + uName + "' and userPassword = '" + uPassword + "'";
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
 
             if (reader.Read())
             {
@@ -37,8 +38,8 @@ namespace RealEstates.serverSide
         {
             con.Open();
             string str = "select fullName from Users where Users.userName = '" + userName + "' and Users.admin = 'yes'";
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
             if (reader.Read())
             {
                 con.Close();

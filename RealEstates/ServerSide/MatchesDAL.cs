@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -8,17 +9,17 @@ namespace RealEstates.ServerSide
 {
     public class MatchesDAL
     {
-        private SqlConnection con;
+        private MySqlConnection con;
         public MatchesDAL()
         {
-            con = new SqlConnection(GeneralMethods.getSqlString());
+            con = new MySqlConnection(GeneralMethods.getSqlString());
         }
 
         public void InsertMatch(string buyerEID, string sellerEID, string status)
         {
             con.Open();
             string str = "INSERT INTO Matches VALUES ('" + buyerEID + "','" + sellerEID + "',N'" + status + "')";
-            SqlCommand comm = new SqlCommand(str, con);
+            MySqlCommand comm = new MySqlCommand(str, con);
             comm.ExecuteNonQuery();
             con.Close();
         }
@@ -27,8 +28,8 @@ namespace RealEstates.ServerSide
         {
             con.Open();
             string str = "select * from Matches where BuyerEstateId='" + buyerEID + "' and SellerEstateId='" + sellerEID + "'";
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
             if (reader.Read())
             {
                 reader.Close();
@@ -45,8 +46,8 @@ namespace RealEstates.ServerSide
             LinkedList<Matches> toReturn = new LinkedList<Matches>();
             con.Open();
             string str = "select * from Matches where status='חדש'";
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
             while (reader.Read())
             {
                 Matches m = new Matches((string)reader[0], (string)reader[1], (string)reader[2]);
@@ -71,8 +72,8 @@ namespace RealEstates.ServerSide
                 str = "select * from Matches where status=N'פתוח'";
             else if (type == 2)
                 str = "select * from Matches where status=N'סגור'";
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
             while (reader.Read())
             {
                 Matches m = new Matches((string)reader[0], (string)reader[1], (string)reader[2]);
@@ -94,7 +95,7 @@ namespace RealEstates.ServerSide
             else if (toStatus == 1)
                 changeTo = "סגור";
             string str = "update Matches set Matches.Status=N'" + changeTo + "' where Matches.BuyerEstateId='" + buyerEstateId + "' and Matches.SellerEstateId='" + sellerEstateId + "'";
-            SqlCommand comm = new SqlCommand(str, con);
+            MySqlCommand comm = new MySqlCommand(str, con);
             comm.ExecuteNonQuery();
             con.Close();
         }
@@ -103,8 +104,8 @@ namespace RealEstates.ServerSide
 
             con.Open();
             string str = "select Status from Matches where BuyerEstateId='" + buyerEstateId + "' and SellerEstateId='" + sellerEstateId + "'";
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
             if (reader.Read())
             {
                 if (((string)reader[0]).Equals("סגור"))

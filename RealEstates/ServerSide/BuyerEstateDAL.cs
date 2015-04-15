@@ -1,4 +1,5 @@
-﻿using RealEstates.ServerSide;
+﻿using MySql.Data.MySqlClient;
+using RealEstates.ServerSide;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,10 +10,10 @@ namespace RealEstates.serverSide
 {
     public class BuyerEstateDAL
     {
-        private SqlConnection con;
+        private MySqlConnection con;
         public BuyerEstateDAL()
         {
-            con = new SqlConnection(GeneralMethods.getSqlString());
+            con = new MySqlConnection(GeneralMethods.getSqlString());
         }
         public void NewBuyerEstate(string buyerID, string estateType,  string city, string hood, 
              string roomFrom, string roomTo, string areaFrom, string areaTo, string floorFrom,
@@ -24,7 +25,7 @@ namespace RealEstates.serverSide
                 + "',N'" + hood + "','" + roomFrom + "','" +roomTo + "','" + areaFrom + "','" + areaTo 
                 + "',N'" + floorFrom + "',N'" + floorTo + "',N'" + garden
                 + "','" + priceFrom + "',N'" + priceTo + "')";
-            SqlCommand comm = new SqlCommand(str, con);
+            MySqlCommand comm = new MySqlCommand(str, con);
             comm.ExecuteNonQuery();
             con.Close();
         }
@@ -33,8 +34,8 @@ namespace RealEstates.serverSide
             LinkedList<Buyer> toReturn = new LinkedList<Buyer>();
             con.Open();
             string str = "select * from BuyerEstates";
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
 
             while(reader.Read())
             {

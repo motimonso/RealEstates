@@ -1,8 +1,29 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="NewSellerPage.aspx.cs" Inherits="Moti.WebForm3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script type="text/javascript">
+        <script type="text/javascript" src='<%= ResolveClientUrl("~/JavaScript/jsScript.js") %>'></script>
 
+
+    <script type="text/javascript">
+        window.onload = initPage;
+        function initPage() {
+            rb1Pressed();
+        }
+        function rb1Pressed() {
+            document.getElementById('<%=TextBoxFName.ClientID%>').disabled = true;
+            document.getElementById('<%=TextBoxLName.ClientID%>').disabled = true;
+            document.getElementById('<%=TextBoxP1.ClientID%>').disabled = true;
+            document.getElementById('<%=TextBoxP2.ClientID%>').disabled = true;
+            document.getElementById('<%=TextBoxP3.ClientID%>').disabled = true;
+
+        }
+        function rb2Pressed() {
+            document.getElementById('<%=TextBoxFName.ClientID%>').disabled = false;
+             document.getElementById('<%=TextBoxLName.ClientID%>').disabled = false;
+             document.getElementById('<%=TextBoxP1.ClientID%>').disabled = false;
+             document.getElementById('<%=TextBoxP2.ClientID%>').disabled = false;
+             document.getElementById('<%=TextBoxP3.ClientID%>').disabled = false;
+         }
     </script>
     <div class="row fixCenter">
 
@@ -14,13 +35,13 @@
     <div class="row fixRTL ">
         <div class="row">
             <div class="col-md-12">
-                <asp:RadioButton CssClass="fixPaddRight6PX" GroupName="ClientRadio" AutoPostBack="true" OnCheckedChanged="radiobuttonChenched" ID="RadioButtonExist" runat="server" Text="לקוח קיים" />
+                <asp:RadioButton CssClass="fixPaddRight6PX"  Checked="true" GroupName="rbg" ID="RadioButtonExist" runat="server" Text="לקוח קיים" />
                 <asp:Label runat="server" Visible="false" ID="ExistUserErrorLabel" Text="מספר הזהות שגוי או שאינו קיים במערכת" ForeColor="Red"></asp:Label>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <asp:RadioButton CssClass="fixPaddRight6PX" GroupName="ClientRadio" AutoPostBack="true" OnCheckedChanged="radiobuttonChenched" ID="RadioButtonNew" runat="server" Text="לקוח חדש" />
+                <asp:RadioButton CssClass="fixPaddRight6PX" GroupName="rbg" ID="RadioButtonNew"  runat="server" Text="לקוח חדש" />
                 <asp:Label runat="server" Visible="false" ID="NewUserErrorLabel" Text="מספר הזהות קיים במערכת" ForeColor="Red"></asp:Label>
             </div>
         </div>
@@ -75,12 +96,12 @@
 
             <div class="DetailDiv">
                 <asp:Label CssClass="DetailsToFill" ID="Label10" runat="server" Text="עיר :"></asp:Label>
-                <asp:DropDownList CssClass="AddressDDL" ID="ddlCities" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCities_SelectedIndexChanged"></asp:DropDownList>
+                <asp:DropDownList CssClass="AddressDDL" ID="ddlCities" runat="server" OnSelectedIndexChanged="ddlCities_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
             </div>
 
             <div class="DetailDiv">
                 <asp:Label CssClass="DetailsToFill" ID="Label11" runat="server" Text="שכונה :"></asp:Label>
-                <asp:DropDownList CssClass="AddressDDL" ID="ddlHood" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlHood_SelectedIndexChanged"></asp:DropDownList>
+                <asp:DropDownList CssClass="AddressDDL" ID="ddlHood" runat="server" OnSelectedIndexChanged="ddlHood_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
             </div>
 
             <div class="DetailDiv">
@@ -172,8 +193,8 @@
     <br />
     <div class="row ">
         <div class="col-md-12 fixCenter fixRTL">
-            <asp:Button runat="server" ID="SendButton" Text="שלח" OnClientClick="return UserValidate();" OnClick="SendNewSeller" />
-            <asp:Button runat="server" ID="ClearButton" Text="נקה" OnClick="ClearClicked" />
+            <asp:Button runat="server" ID="SendButton" Text="שלח" />
+            <asp:Button runat="server" ID="ClearButton" Text="נקה" />
         </div>
     </div>
 </asp:Content>

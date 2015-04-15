@@ -1,4 +1,5 @@
-﻿using RealEstates.ServerSide;
+﻿using MySql.Data.MySqlClient;
+using RealEstates.ServerSide;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,19 +10,19 @@ namespace RealEstates.serverSide
 {
     public class ClientsDAL
     {
-         private SqlConnection con;
+         private MySqlConnection con;
         public ClientsDAL()
         {
 
-            con = new SqlConnection(GeneralMethods.getSqlString());
+            con = new MySqlConnection(GeneralMethods.getSqlString());
         }
         
         public bool ClientExist(string cId)
         {
             con.Open();
             string str = "select clientId from Clients where Clients.clientId = '" + cId + "'";
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
 
             if (reader.Read())
             {
@@ -37,7 +38,7 @@ namespace RealEstates.serverSide
         {
             con.Open();
             string str = "INSERT INTO Clients VALUES ('" + id + "',N'" + fName + "',N'" + lName + "','" + phone1 + "','" + phone2 + "','" + phone3 + "')";
-            SqlCommand comm = new SqlCommand(str, con);
+            MySqlCommand comm = new MySqlCommand(str, con);
             comm.ExecuteNonQuery();
             con.Close();
         }
@@ -47,8 +48,8 @@ namespace RealEstates.serverSide
             Client toReturn=null ;
             con.Open();
             string str = "select * from Clients where Clients.clientId = '" + id + "'";
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
 
             if (reader.Read())
             {
@@ -62,8 +63,8 @@ namespace RealEstates.serverSide
         {
             con.Open();
             string str = "select Clients.firstName,Clients.lastName from Clients,BuyerEstates where BuyerEstates.EstateID='"+estateID+"' and Clients.clientId=BuyerEstates.clientId";
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
             string toReturn = "";
             if (reader.Read())
             {
@@ -78,8 +79,8 @@ namespace RealEstates.serverSide
             Client toReturn = null;
             con.Open();
             string str = "select Clients.clientId, Clients.firstName,Clients.lastName,Clients.phone1,Clients.phone2,Clients.phone3 from Clients,BuyerEstates where BuyerEstates.EstateID='" + estateId + "' and Clients.clientId=BuyerEstates.clientId";
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
             
             if (reader.Read())
             {
@@ -94,8 +95,8 @@ namespace RealEstates.serverSide
             Client toReturn = null;
             con.Open();
             string str = "select Clients.clientId, Clients.firstName,Clients.lastName,Clients.phone1,Clients.phone2,Clients.phone3 from Clients,SellerEstates where SellerEstates.estateID='" + estateId + "' and Clients.clientId=SellerEstates.sellerId";
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
 
             if (reader.Read())
             {

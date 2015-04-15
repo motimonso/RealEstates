@@ -12,26 +12,24 @@ namespace Moti
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
+            RadioButtonExist.Attributes.Add("OnClick", "JavaScript:rb1Pressed();");
+            RadioButtonNew.Attributes.Add("OnClick", "JavaScript:rb2Pressed();");
             if (!IsPostBack)
             {
-                BindDDLCities();
-                BindEstateType();
-                BindBedroomNumber();
-                BindFloorNumber();
+               BindDDLCities();
+              BindEstateType();
+                 BindBedroomNumber();
+                 BindFloorNumber();
                 BindFourItems();
-                BindYesNo();
-                RadioButtonExist.Checked = true;
-                Panel1.Enabled = false;
-            }
-           
-
-
+                 BindYesNo();
         }
-        
+    }
 
+    
         protected void radiobuttonChenched(object sender, EventArgs e)
         {
             ExistUserErrorLabel.Visible = false;

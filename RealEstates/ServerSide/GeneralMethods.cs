@@ -15,7 +15,7 @@ namespace RealEstates.ServerSide
         }
         public static string getSqlString()
         {
-            return @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Dev\Visual_Projects\RealEstates\RealEstates\App_Data\DB.mdf;Integrated Security=True;Connect Timeout=30";
+            return "server=e853c44f-0777-4bbf-b145-a47a011c7bba.mysql.sequelizer.com;database=dbe853c44f07774bbfb145a47a011c7bba;uid=dnmvszthwcynrvus;pwd=StPjQNyQy2VejHVHsjsuXBC4kqw7LjK2YNRXgrUAhWzYgRgttxmEFA3qYU8zrzdo";
         }
         public static bool IsDigitsOnly(string str)
         {
