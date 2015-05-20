@@ -24,8 +24,6 @@ namespace RealEstates.ServerSide
             }
 
             Description = Description.Remove(startCut, 4);
-
-            System.Diagnostics.Debug.WriteLine(Description);
         }
         public string removePiture()
         {
@@ -40,8 +38,6 @@ namespace RealEstates.ServerSide
             }
             string toReturn = Description.Substring(5, endOfImg - 4 );
             Description = Description.Remove(5, endOfImg - 4);
-            System.Diagnostics.Debug.WriteLine(Description);
-            System.Diagnostics.Debug.WriteLine(toReturn);
             return toReturn;
         }
 
