@@ -217,7 +217,6 @@
     <Compile Include="ServerSide\Seller.cs" />
     <Compile Include="ServerSide\SellerEstateBL.cs" />
     <Compile Include="ServerSide\SellerEstateDAL.cs" />
-    <Compile Include="ServerSide\test.cs" />
     <Compile Include="ServerSide\UsersBL.cs" />
     <Compile Include="ServerSide\UsersDAL.cs" />
     <Compile Include="SideBar.ascx.cs">
