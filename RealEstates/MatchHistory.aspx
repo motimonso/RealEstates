@@ -7,11 +7,11 @@
     <div id="CloseMatches">
         <h3>התאמות סגורות</h3>
         <%
-            MatchesBL mbl = new MatchesBL();
-            ClientsBL cbl = new ClientsBL();
-            SellerEstateBL sbl = new SellerEstateBL();
-            LinkedList<Matches> closeMatchList = mbl.getMatchesByType(2);
-            foreach (Matches m in closeMatchList)
+            RealEstates.MatchesBL mbl = new RealEstates.MatchesBL();
+            RealEstates.ServerSide.ClientsBL cbl = new RealEstates.ServerSide.ClientsBL();
+            RealEstates.SellerEstateBL sbl = new RealEstates.SellerEstateBL();
+            LinkedList<RealEstates.Matches> closeMatchList = mbl.getMatchesByType(2);
+            foreach (RealEstates.Matches m in closeMatchList)
             {
                 string buyerName = cbl.getBuyerNameByEstateID(m.BuyerEstateId);
                 string sellerAddress = sbl.getFullAddressByEstateID(m.SellerEstateId);   

@@ -3,8 +3,8 @@
 
     <%
         string estateId = Request["estateId"];
-        SellerEstateBL sbl = new SellerEstateBL();
-        Seller sellerEstate = sbl.getFullSellerByEstateId(estateId);
+        RealEstates.SellerEstateBL sbl = new RealEstates.SellerEstateBL();
+        RealEstates.Seller sellerEstate = sbl.getFullSellerByEstateId(estateId);
          %>
     <div class="row">
         <h3>פרטי הנכס :</h3>

@@ -5,11 +5,11 @@
     <div id="NewMatches">
         <h3>התאמות חדשות</h3>
         <%
-            MatchesBL mbl = new MatchesBL();
-            LinkedList<Matches> newMatchList = mbl.getMatchesByType(0);
-            ClientsBL cbl = new ClientsBL();
-            SellerEstateBL sbl = new SellerEstateBL();
-            foreach (Matches m in newMatchList)
+            RealEstates.MatchesBL mbl = new RealEstates.MatchesBL();
+            LinkedList<RealEstates.Matches> newMatchList = mbl.getMatchesByType(0);
+            RealEstates.ServerSide.ClientsBL cbl = new RealEstates.ServerSide.ClientsBL();
+            RealEstates.SellerEstateBL sbl = new RealEstates.SellerEstateBL();
+            foreach (RealEstates.Matches m in newMatchList)
             {
                 string buyerName = cbl.getBuyerNameByEstateID(m.BuyerEstateId);
                 string sellerAddress = sbl.getFullAddressByEstateID(m.SellerEstateId);
@@ -31,8 +31,8 @@
     <div id="OpenMatches">
         <h3>התאמות פתוחות</h3>
         <%
-            LinkedList<Matches> openMatchList = mbl.getMatchesByType(1);
-            foreach (Matches m in openMatchList)
+            LinkedList<RealEstates.Matches> openMatchList = mbl.getMatchesByType(1);
+            foreach (RealEstates.Matches m in openMatchList)
             {
                 string buyerName = cbl.getBuyerNameByEstateID(m.BuyerEstateId);
                 string sellerAddress = sbl.getFullAddressByEstateID(m.SellerEstateId);   

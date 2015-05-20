@@ -4,14 +4,14 @@
     <h1>פרטי התאמה</h1>
 
     <%
-        ClientsBL cbl = new ClientsBL();
-        SellerEstateBL sbl = new SellerEstateBL();
+        RealEstates.ServerSide.ClientsBL cbl = new RealEstates.ServerSide.ClientsBL();
+        RealEstates.SellerEstateBL sbl = new RealEstates.SellerEstateBL();
         string buyerEstateId = Request["BuyerEstateId"];
         string sellerEstateId = Request["SellerEstateId"];
-        Client buyer = cbl.getFullBuyerByEstateId(buyerEstateId);
-        Client seller = cbl.getFullSellerByEstateId(sellerEstateId);
-        Seller sellerEstate = sbl.getFullSellerByEstateId(sellerEstateId);
-        MatchesBL mbl = new MatchesBL();
+        RealEstates.Client buyer = cbl.getFullBuyerByEstateId(buyerEstateId);
+        RealEstates.Client seller = cbl.getFullSellerByEstateId(sellerEstateId);
+        RealEstates.Seller sellerEstate = sbl.getFullSellerByEstateId(sellerEstateId);
+        RealEstates.MatchesBL mbl = new RealEstates.MatchesBL();
     %>
 
     <div class="row">

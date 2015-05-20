@@ -9,9 +9,9 @@
         string CityFromSearch = Request["city"];
         string hoodFromSearch = Request["hood"];
         string estateFromSearch = Request["estateKind"];
-        SellerEstateBL sbl = new SellerEstateBL();
-        LinkedList<Seller> sellerList = sbl.SearchSellers(CityFromSearch, hoodFromSearch, estateFromSearch);
-        foreach (Seller s in sellerList)
+        RealEstates.SellerEstateBL sbl = new RealEstates.SellerEstateBL();
+        LinkedList<RealEstates.Seller> sellerList = sbl.SearchSellers(CityFromSearch, hoodFromSearch, estateFromSearch);
+        foreach (RealEstates.Seller s in sellerList)
         {
         
         
