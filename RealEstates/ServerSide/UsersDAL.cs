@@ -5,7 +5,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace RealEstates.serverSide
+
+namespace RealEstates
 {
     public class UsersDAL
     {

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using RealEstates.ServerSide;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace RealEstates.ServerSide
+
+namespace RealEstates
 {
     public class MatchesBL
     {

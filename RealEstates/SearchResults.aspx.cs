@@ -1,4 +1,5 @@
-﻿using RealEstates.ServerSide;
+﻿using RealEstates;
+using RealEstates.ServerSide;
 using System;
 using System.Collections.Generic;
 using System.Linq;

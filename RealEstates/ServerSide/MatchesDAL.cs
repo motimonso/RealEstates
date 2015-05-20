@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace RealEstates.ServerSide
+namespace RealEstates
 {
     public class MatchesDAL
     {

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RealEstates.ServerSide;
+using RealEstates;
 namespace Moti
 {
     public partial class WebForm1 : System.Web.UI.Page

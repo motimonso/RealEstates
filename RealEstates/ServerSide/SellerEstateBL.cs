@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace RealEstates.ServerSide
+namespace RealEstates
 {
     public class SellerEstateBL
     {
