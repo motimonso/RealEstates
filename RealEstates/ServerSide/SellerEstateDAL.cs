@@ -11,7 +11,7 @@ namespace RealEstates.ServerSide
          private SqlConnection con;
          public SellerEstateDAL()
         {
-            con = new SqlConnection(GeneralMethods.getSqlString());
+            con = new SqlConnection(GeneralMethods.getMySqlString());
         }
          public void NewSellerEstate(string sellerID,string estateType, string price, string city, string hood, string street,
              string number, string numOfBedroom, string area, string floor, string stairs, string elavator,

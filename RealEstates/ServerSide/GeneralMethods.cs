@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,9 +14,16 @@ namespace RealEstates.ServerSide
             return d.Year.ToString() + d.Month.ToString() + d.Day.ToString() + d.Hour.ToString()
                 + d.Minute.ToString() + d.Second.ToString() + d.Millisecond.ToString();
         }
-        public static string getSqlString()
+        
+        public static string getMySqlString()
         {
-            return @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Dev\Visual_Projects\RealEstates\RealEstates\App_Data\DB.mdf;Integrated Security=True;Connect Timeout=30";
+            MySqlConnectionStringBuilder csb = new MySqlConnectionStringBuilder();
+            csb.Server = "e853c44f-0777-4bbf-b145-a47a011c7bba.mysql.sequelizer.com";
+            csb.UserID = "dnmvszthwcynrvus";
+            csb.Password = "StPjQNyQy2VejHVHsjsuXBC4kqw7LjK2YNRXgrUAhWzYgRgttxmEFA3qYU8zrzdo";
+            csb.Database = "dbe853c44f07774bbfb145a47a011c7bba";
+            csb.PersistSecurityInfo = true;
+            return csb.ToString();
         }
         public static bool IsDigitsOnly(string str)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace RealEstates.ServerSide
 {
     public class AddressDAL
     {
-        private SqlConnection con;
+        private MySqlConnection con;
         public AddressDAL()
         {
            
-            con = new SqlConnection(GeneralMethods.getSqlString());
+            con = new MySqlConnection(GeneralMethods.getMySqlString());
         }
 
         public LinkedList<ListItem> getAllCities()
@@ -21,8 +22,8 @@ namespace RealEstates.ServerSide
             con.Open();
             string str = "select * from Cities";
             
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
             LinkedList<ListItem> toReturn = new LinkedList<ListItem>();
             while (reader.Read()) 
             {
@@ -37,8 +38,8 @@ namespace RealEstates.ServerSide
             con.Open();
             string str = "select HoodID,HoodName from Neighborhood where CityID='"+city+"'";
 
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
             LinkedList<ListItem> toReturn = new LinkedList<ListItem>();
             while (reader.Read())
             {
@@ -53,8 +54,8 @@ namespace RealEstates.ServerSide
             con.Open();
             string str = "select StreetID,StreetName from Streets where HoodID='" + hood + "'";
 
-            SqlCommand comm = new SqlCommand(str, con);
-            SqlDataReader reader = comm.ExecuteReader();
+            MySqlCommand comm = new MySqlCommand(str, con);
+            MySqlDataReader reader = comm.ExecuteReader();
             LinkedList<ListItem> toReturn = new LinkedList<ListItem>();
             while (reader.Read())
             {

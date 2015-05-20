@@ -12,7 +12,7 @@ namespace RealEstates.serverSide
         private SqlConnection con;
         public BuyerEstateDAL()
         {
-            con = new SqlConnection(GeneralMethods.getSqlString());
+            con = new SqlConnection(GeneralMethods.getMySqlString());
         }
         public void NewBuyerEstate(string buyerID, string estateType,  string city, string hood, 
              string roomFrom, string roomTo, string areaFrom, string areaTo, string floorFrom,

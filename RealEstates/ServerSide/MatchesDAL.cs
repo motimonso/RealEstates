@@ -11,7 +11,7 @@ namespace RealEstates.ServerSide
         private SqlConnection con;
         public MatchesDAL()
         {
-            con = new SqlConnection(GeneralMethods.getSqlString());
+            con = new SqlConnection(GeneralMethods.getMySqlString());
         }
 
         public void InsertMatch(string buyerEID, string sellerEID, string status)

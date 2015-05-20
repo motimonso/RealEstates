@@ -58,7 +58,7 @@ namespace Moti
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
     }

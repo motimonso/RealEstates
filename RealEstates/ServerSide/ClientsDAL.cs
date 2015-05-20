@@ -13,7 +13,7 @@ namespace RealEstates.serverSide
         public ClientsDAL()
         {
 
-            con = new SqlConnection(GeneralMethods.getSqlString());
+            con = new SqlConnection(GeneralMethods.getMySqlString());
         }
         
         public bool ClientExist(string cId)

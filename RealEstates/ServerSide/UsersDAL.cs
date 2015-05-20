@@ -13,7 +13,7 @@ namespace RealEstates.serverSide
         public UsersDAL()
         {
 
-            con = new SqlConnection(GeneralMethods.getSqlString());
+            con = new SqlConnection(GeneralMethods.getMySqlString());
         }
 
         public string GetUser(string uName, string uPassword) // Return User Full Name If Exists
