@@ -22,7 +22,7 @@ namespace RealEstates
             csb.UserID = "dnmvszthwcynrvus";
             csb.Password = "StPjQNyQy2VejHVHsjsuXBC4kqw7LjK2YNRXgrUAhWzYgRgttxmEFA3qYU8zrzdo";
             csb.Database = "dbe853c44f07774bbfb145a47a011c7bba";
-            csb.PersistSecurityInfo = true;
+            //csb.PersistSecurityInfo = true;
             return csb.ToString();
         }
         public static bool IsDigitsOnly(string str)
